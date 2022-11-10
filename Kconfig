@@ -1,0 +1,15 @@
+menu "Quirc"
+
+    choice QUIRC_MEMORY_MODEL
+        bool "Preferred Memory Model"
+        default QUIRC_USE_HEAP
+        help
+            Use heap or stack for large memory consuming objects.
+
+        config QUIRC_USE_HEAP
+            bool "Heap"
+        config QUIRC_USE_STACK
+            bool "Stack"
+    endchoice
+
+endmenu

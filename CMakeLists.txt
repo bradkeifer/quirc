@@ -1,0 +1,9 @@
+idf_component_register(
+        SRCS 
+                "lib/decode.c"
+                "lib/identify.c"
+                "lib/quirc.c"
+                "lib/version_db.c"
+        INCLUDE_DIRS 
+                "lib" 
+)

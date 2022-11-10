@@ -18,6 +18,8 @@
 #include <string.h>
 #include "quirc_internal.h"
 
+static const char *TAG = "quirc";
+
 const char *quirc_version(void)
 {
 	return "1.0";
@@ -25,6 +27,11 @@ const char *quirc_version(void)
 
 struct quirc *quirc_new(void)
 {
+#ifdef QUIRC_USE_HEAP
+	ESP_LOGD(TAG, "Quirc using heap for large objects.");
+#else
+	ESP_LOGD(TAG, "Quirc using stack for large objects.");
+#endif
 	struct quirc *q = malloc(sizeof(*q));
 
 	if (!q)

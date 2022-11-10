@@ -21,6 +21,8 @@
 #include <stdlib.h>
 
 #include "quirc.h"
+#include "sdkconfig.h"
+#include "esp_log.h"
 
 #define QUIRC_ASSERT(a)	assert(a)
 
@@ -44,6 +46,10 @@ typedef uint8_t quirc_pixel_t;
 typedef uint16_t quirc_pixel_t;
 #else
 #error "QUIRC_MAX_REGIONS > 65534 is not supported"
+#endif
+
+#ifdef CONFIG_QUIRC_USE_HEAP
+#define QUIRC_USE_HEAP
 #endif
 
 struct quirc_region {
