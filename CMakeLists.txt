@@ -4,6 +4,8 @@ idf_component_register(
                 "lib/identify.c"
                 "lib/quirc.c"
                 "lib/version_db.c"
+                "demo/convert.c"
         INCLUDE_DIRS 
-                "lib" 
+                "lib"
+                "demo"
 )
